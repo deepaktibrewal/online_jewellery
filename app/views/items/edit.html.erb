@@ -25,6 +25,11 @@
         <th>Description:</th>
         <td><%= f.text_area(:description, size: "17*17") %></td>
       </tr>
+
+      <tr>
+        <th>Image:</th>
+        <td><%= f.file_field(:image) %></td>
+      </tr>
     </table>
 
     <div class="form-buttons">

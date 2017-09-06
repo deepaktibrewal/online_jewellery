@@ -3,7 +3,7 @@
 <div class="Items new">
   <h2> Create Item</h2>
 
-  <%= form_for(@item) do |f| %>
+  <%= form_for @item, html: { multipart: true } do |f| %>
 
     <table summary="Item form fields">
       <tr>
@@ -24,6 +24,11 @@
       <tr>
         <th>Description:</th>
         <td><%= f.text_area(:description, size: "17*17") %></td>
+      </tr>
+
+      <tr>
+        <th>Image:</th>
+        <td><%= f.file_field(:image) %></td>
       </tr>
     </table>
 
