@@ -1,4 +1,6 @@
 class CategoriesController < ApplicationController
+
+  before_action :confirm_logged_in
   def index
     @categories=Category.all
     render('index')
@@ -41,7 +43,7 @@ class CategoriesController < ApplicationController
   end
 
   def destroy
-    
+
   end
 
   private

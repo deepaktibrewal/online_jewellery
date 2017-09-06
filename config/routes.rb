@@ -1,5 +1,11 @@
 Rails.application.routes.draw do
 
+  get 'admin', to: 'categories#index'
+  get 'access/shop_front'
+  get 'access/login'
+  post 'access/attempt_login'
+  get 'access/logout'
+
   resources :categories do
     member do
       get :delete

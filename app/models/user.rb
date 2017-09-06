@@ -1,5 +1,6 @@
 class User < ApplicationRecord
   has_and_belongs_to_many :items
+  has_secure_password
 
   validates :name, :email, :password_digest, :user_type, :contact, :address, presence: { message: "Necessary Fields"}
   validates :email, format: { with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i,
