@@ -1,9 +1,9 @@
-<%= link_to("<< Back To List",items_path,class: 'back-link') %>
+<%= link_to("<< Back To List",items_path(category_id: @category.id),class: 'back-link') %>
 
 <div class="Items edit">
   <h2> Edit Item</h2>
 
-  <%= form_for(@item) do |f| %>
+  <%= form_for(@item, url: item_path(@item, category_id: @category.id)) do |f| %>
 
     <table summary="Item form fields">
       <tr>

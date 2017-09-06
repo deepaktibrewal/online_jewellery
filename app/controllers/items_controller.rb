@@ -1,6 +1,9 @@
 class ItemsController < ApplicationController
+
+  before_action :find_category
+
   def index
-    @items=Item.all
+    @items=@category.items.all
     render('index')
   end
 
@@ -10,14 +13,14 @@ class ItemsController < ApplicationController
   end
 
   def new
-    @item=Item.new
+    @item=Item.new(category_id: @category.id)
     @categories=Category.all
   end
 
   def create
     @item=Item.new(item_params)
     if @item.save
-      redirect_to(items_path)
+      redirect_to(items_path(category_id: @category.id))
     else
       @categories=Category.all
       render('new')
@@ -32,7 +35,7 @@ class ItemsController < ApplicationController
   def update
     @item=Item.find(params[:id])
     if @item.update_attributes(item_params)
-      redirect_to(items_path)
+      redirect_to(item_path(@item, category_id: @category.id))
     else
       @categories=Category.all
       render('edit')
@@ -42,7 +45,7 @@ class ItemsController < ApplicationController
   def delete
     @item=Item.find(params[:id])
     @item.destroy
-    redirect_to(items_path)
+    redirect_to(items_path(category_id: @category.id))
   end
 
   def destroy
@@ -52,5 +55,9 @@ class ItemsController < ApplicationController
 
   def item_params
     params.require(:item).permit(:name, :price, :category_id, :description, :image)
+  end
+
+  def find_category
+    @category=Category.find(params[:category_id])
   end
 end
