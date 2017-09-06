@@ -1,0 +1,34 @@
+<%= link_to("<< Back To List",items_path,class: 'back-link') %>
+
+<div class="Items edit">
+  <h2> Edit Item</h2>
+
+  <%= form_for(@item) do |f| %>
+
+    <table summary="Item form fields">
+      <tr>
+        <th>Name:</th>
+        <td><%= f.text_field(:name) %></td>
+      </tr>
+
+      <tr>
+        <th>Price:</th>
+        <td><%= f.text_field(:price) %></td>
+      </tr>
+
+      <tr>
+        <th>Category_name:</th>
+        <td><%= f.select(:category_id, @categories.map {|s| [s.name, s.id]}) %></td>
+      </tr>
+
+      <tr>
+        <th>Description:</th>
+        <td><%= f.text_area(:description, size: "17*17") %></td>
+      </tr>
+    </table>
+
+    <div class="form-buttons">
+      <%= f.submit("Update Item") %>
+    </div>
+
+    <% end %>
