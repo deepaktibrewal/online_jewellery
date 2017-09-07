@@ -1,0 +1,24 @@
+<%= link_to("Logout", access_logout_path) %>
+<%= link_to("View Wishlist", categories_path, class: 'back-link') %>
+<%= form_tag(shopfronts_view_path, method: "get") do %>
+  <%= label_tag(:q, "Search for:") %>
+  <%= select_tag(:q, options_for_select(@categories.map {|s| [s.name, s.id]})) %>
+  <%= submit_tag("Search") %>
+<% end %>
+<table class="listing" summary="Item list">
+  <tr class="header">
+    <th>Item_image</th>
+    <th>Item_name</th>
+    <th>Item_price</th>
+    <th>Item_description</th>
+  </tr>
+<% @items.each do |item| %>
+<tr>
+  <td><%= image_tag item.image.url(:thumb) %></td>
+  <td><%= item.name %></td>
+  <td><%= item.price %></td>
+  <td><%= item.description %></td>
+  <td><%= link_to("Add to WishList","#",class: 'back-link') %></td>
+</tr>
+<% end %>
+</table>

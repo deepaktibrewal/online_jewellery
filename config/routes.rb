@@ -1,7 +1,11 @@
 Rails.application.routes.draw do
 
+  get 'shopfronts/view'
+  get 'shopfronts/cart'
+
   get 'admin', to: 'categories#index'
-  get 'access/shop_front'
+  #get 'access/shop_front'
+  #post 'access/shop_front'
   get 'access/login'
   post 'access/attempt_login'
   get 'access/logout'
