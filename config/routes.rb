@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  root 'access#login'
+
   get 'shopfronts/view'
   get 'shopfronts/cart'
 

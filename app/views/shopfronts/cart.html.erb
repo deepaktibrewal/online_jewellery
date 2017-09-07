@@ -1,2 +1,19 @@
-<h1>Shopfronts#cart</h1>
-<p>Find me in app/views/shopfronts/cart.html.erb</p>
+<%= link_to("Logout", access_logout_path) %>
+<%= link_to("Back To Cart", shopfronts_view_path, class: 'back-link') %>
+<h2>Items In Your Wishlist</h2>
+<table class="listing" summary="Item list">
+  <tr class="header">
+    <th>Item_image</th>
+    <th>Item_name</th>
+    <th>Item_price</th>
+    <th>Item_description</th>
+  </tr>
+<% @items.each do |item| %>
+<tr>
+  <td><%= image_tag item.image.url(:thumb) %></td>
+  <td><%= item.name %></td>
+  <td><%= item.price %></td>
+  <td><%= item.description %></td>
+</tr>
+<% end %>
+</table>

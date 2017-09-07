@@ -1,5 +1,5 @@
 <%= link_to("Logout", access_logout_path) %>
-<%= link_to("View Wishlist", categories_path, class: 'back-link') %>
+<%= link_to("View Wishlist", shopfronts_cart_path, class: 'back-link') %>
 <%= form_tag(shopfronts_view_path, method: "get") do %>
   <%= label_tag(:q, "Search for:") %>
   <%= select_tag(:q, options_for_select(@categories.map {|s| [s.name, s.id]})) %>
@@ -18,7 +18,8 @@
   <td><%= item.name %></td>
   <td><%= item.price %></td>
   <td><%= item.description %></td>
-  <td><%= link_to("Add to WishList","#",class: 'back-link') %></td>
+  <td><%= link_to "Add to WishList", shopfronts_cart_path(itm: item), class: 'back-link' %></td>
+  <td><%= social_share_button_tag(item) %></td>
 </tr>
 <% end %>
 </table>

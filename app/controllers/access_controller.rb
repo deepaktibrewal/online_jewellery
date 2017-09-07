@@ -42,6 +42,7 @@ class AccessController < ApplicationController
 
   def logout
     session[:email] = nil
+    session.delete(:cart_item)
     flash[:notice] = 'logged out'
     redirect_to(access_login_path)
   end
