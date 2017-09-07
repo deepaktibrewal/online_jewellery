@@ -24,5 +24,6 @@ Category.second.items.create! [
 User.create! [
   { name: "banka",email: "banka@gmail.com",user_type: "person", contact: 12345678 ,address: "bcfjdhs",  password_digest: "abs"},
   { name: "deepak",email: "deepak@gmail.com",user_type: "person", contact: 16546555 ,address: "bcfjdhs",  password_digest: "abs"},
-  { name: "dipay",email: "depa@gmail.com",user_type: "admin", contact: 16555555 ,address: "dcsad",  password_digest: "dsabs"}
+  { name: "dipay",email: "depa@gmail.com",user_type: "admin", contact: 16555555 ,address: "dcsad",  password_digest: "dsabs"},
+  { name: "deepak",email: "tibrewaldeepak00@yahoo.com",user_type: "person", contact: 12345688 ,address: "bcfjdhs",  password_digest: "abs"}
 ]

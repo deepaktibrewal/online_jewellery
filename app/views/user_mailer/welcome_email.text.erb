@@ -1,0 +1,14 @@
+Hi, @user.name
+
+    Items In Your Wishlist are :-
+
+
+    <% @items.each do |item| %>
+
+      Item_image:<%= image_tag item.image.url(:thumb) %>
+      Item_name:<%= item.name %>
+      Item_Price:<%= item.price %>
+      Item_Description:<%= item.description %>
+
+    <% end %>
+    Thanks for joining and have a great day!
