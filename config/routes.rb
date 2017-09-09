@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
 
+  #get 'users/new'
+
+  resources 'users', only: [:new, :create]
+
   root 'access#login'
 
   get 'shopfronts/view'

@@ -1,0 +1,51 @@
+<body>
+  <header class="header">
+    <span class="container">
+      <h2 class="title">Welcome To Jewellery_Plaza</h1>
+    </span>
+  </header>
+
+<div class="Categories new container">
+  <h2> Create User</h2>
+
+  <%= form_for(@user) do |f| %>
+
+    <table summary="User form fields">
+      <tr class="form-group">
+        <th>Name:</th>
+        <td class="form-padding"><%= f.text_field(:name) %></td>
+      </tr>
+
+      <tr class="form-group">
+        <th>Email:</th>
+        <td class="form-padding"><%= f.email_field(:email) %></td>
+      </tr>
+
+      <tr class="form-group">
+        <th>User_type:</th>
+        <td class="form-padding"><%= f.select(:user_type, ["admin","person"]) %></td>
+      </tr>
+
+      <tr class="form-group ">
+        <th>Password:</th>
+        <td class="form-padding"><%= f.password_field(:password) %></td>
+      </tr>
+
+      <tr class="form-group ">
+        <th>Contact:</th>
+        <td class="form-padding"><%= f.telephone_field(:contact) %></td>
+      </tr>
+
+      <tr class="form-group ">
+        <th>Address:</th>
+        <td class="form-padding"><%= f.text_area(:address, size: "17*17") %></td>
+      </tr>
+    </table>
+
+    <div class="form-buttons">
+      <%= f.submit("Create User") %>
+    </div>
+
+    <% end %>
+  </div>
+</body>

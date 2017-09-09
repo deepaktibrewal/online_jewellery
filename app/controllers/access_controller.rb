@@ -16,6 +16,14 @@ class AccessController < ApplicationController
   end
 
   def login
+    if session["email"]
+      @user=User.find(session[:email])
+      if @user.user_type=="admin"
+        redirect_to(categories_path)
+      else
+        redirect_to(shopfronts_view_path)
+      end
+    end
   end
 
   def attempt_login
