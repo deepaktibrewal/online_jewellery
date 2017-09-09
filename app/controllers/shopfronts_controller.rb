@@ -29,7 +29,7 @@ class ShopfrontsController < ApplicationController
 
   def usermail
     @user=User.find(session[:email])
-    @items=Item.find(session[:cart_item])
+    @items=@user.items
     UserMailer.welcome_email(@user,@items).deliver_now
     redirect_to(shopfronts_view_path)
   end

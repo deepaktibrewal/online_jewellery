@@ -33,7 +33,7 @@ gem 'jbuilder', '~> 2.5'
 gem 'bcrypt', '~> 3.1.7'
 gem 'social-share-button'
 gem 'bootstrap-sass', '~> 3.3.6'
-
+gem "letter_opener"
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
