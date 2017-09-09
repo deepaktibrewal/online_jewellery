@@ -12,8 +12,19 @@ class ShopfrontsController < ApplicationController
   end
 
   def cart
-    session[:cart_item] << params[:itm]
-    @items=Item.find(session[:cart_item])
+    @user=User.find(session[:email])
+    @items=@user.items
+    if @items.empty?
+      flash[:notice] = "your cart is empty."
+      redirect_to(shopfronts_view_path)
+    end
+  end
+
+  def wishlist
+    @user=User.find(session[:email])
+    @user.items << Item.find(params[:itm])
+    @items=@user.items
+    redirect_to(shopfronts_cart_path)
   end
 
   def usermail

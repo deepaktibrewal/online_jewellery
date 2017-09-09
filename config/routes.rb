@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   get 'shopfronts/view'
   get 'shopfronts/cart'
   get 'shopfronts/usermail'
+  get 'shopfronts/wishlist'
 
   get 'admin', to: 'categories#index'
   #get 'access/shop_front'

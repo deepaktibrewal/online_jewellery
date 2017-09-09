@@ -15,6 +15,11 @@
       <span class="form-padding"><%= submit_tag("Search") %></span>
     <% end %>
   </div>
+  <% if !flash[:notice].blank? %>
+    <div class="container notice">
+      <%= flash[:notice] %>
+    </div>
+  <% end %>
   <div class="Categories new container">
     <table class="listing table table-striped table-inverse" summary="Item list">
       <tr class="">
@@ -31,7 +36,7 @@
       <td class="form-padding"><%= item.name %></td>
       <td class="form-padding"><%= item.price %></td>
       <td class="form-padding"><%= item.description %></td>
-      <td class="form-padding"><%= link_to "Add to WishList", shopfronts_cart_path(itm: item), class: 'back-link' %></td>
+      <td class="form-padding"><%= link_to "Add to WishList", shopfronts_wishlist_path(itm: item), class: 'back-link' %></td>
       <td class="form-padding"><%= social_share_button_tag(item) %></td>
     </tr>
     <% end %>
