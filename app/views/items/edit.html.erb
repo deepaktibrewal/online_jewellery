@@ -1,7 +1,15 @@
-<%= link_to("Logout", access_logout_path) %>
-<%= link_to("<< Back To List",items_path(category_id: @category.id),class: 'back-link') %>
+<body>
+  <header class="header">
+    <div class="container ">
+      <ul class="nav nav-pills navbar-right">
+        <li role="presentation"><%= link_to("<< Back To List",items_path(category_id: @category.id),class: 'back-link') %></li>
+        <li role="presentation"><%= link_to("Logout", access_logout_path) %></li>
+      </ul>
+    </div>
+  </header>
 
-<div class="Items edit">
+
+<div class="Categories new container">
   <h2> Edit Item</h2>
 
   <%= form_for(@item, url: item_path(@item, category_id: @category.id)) do |f| %>
@@ -9,27 +17,27 @@
     <table summary="Item form fields">
       <tr>
         <th>Name:</th>
-        <td><%= f.text_field(:name) %></td>
+        <td class="form-padding"><%= f.text_field(:name) %></td>
       </tr>
 
       <tr>
         <th>Price:</th>
-        <td><%= f.text_field(:price) %></td>
+        <td class="form-padding"><%= f.text_field(:price) %></td>
       </tr>
 
       <tr>
         <th>Category_name:</th>
-        <td><%= f.select(:category_id, @categories.map {|s| [s.name, s.id]}) %></td>
+        <td class="form-padding"><%= f.select(:category_id, @categories.map {|s| [s.name, s.id]}) %></td>
       </tr>
 
       <tr>
         <th>Description:</th>
-        <td><%= f.text_area(:description, size: "17*17") %></td>
+        <td class="form-padding"><%= f.text_area(:description, size: "17*17") %></td>
       </tr>
 
       <tr>
         <th>Image:</th>
-        <td><%= f.file_field(:image) %></td>
+        <td class="form-padding"><%= f.file_field(:image) %></td>
       </tr>
     </table>
 
@@ -38,3 +46,5 @@
     </div>
 
     <% end %>
+  </div>
+</body>

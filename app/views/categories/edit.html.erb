@@ -1,14 +1,21 @@
-<%= link_to("Logout", access_logout_path) %>
-<%= link_to("<< Back To List",categories_path,class: 'back-link') %>
+<body>
+  <header class="header">
+    <div class="container ">
+      <ul class="nav nav-pills navbar-right">
+          <li role="presentation"><%= link_to("Logout", access_logout_path) %></li>
+          <li role="presentation"><%= link_to("<< Back To List",categories_path,class: 'back-link') %></li>
+      </ul>
+    </div>
+  </header>
 
-<div class="Categories edit">
+<div class="Categories edit container">
   <h2> Edit Category</h2>
 
   <%= form_for(@category) do |f| %>
 
-    <table summary="Category form fields">
+    <table summary="Category form fields " class="form-group">
       <tr>
-        <th>Name</th>
+        <th>Name:</th>
         <td><%= f.text_field(:name) %></td>
       </tr>
     </table>
@@ -18,3 +25,5 @@
     </div>
 
     <% end %>
+  </div>
+</body>

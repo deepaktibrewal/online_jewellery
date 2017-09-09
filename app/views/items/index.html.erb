@@ -1,31 +1,40 @@
-<%= link_to("Logout", access_logout_path) %>
-<%= link_to("Back to Categories", categories_path, class: 'back-link') %>
+<body>
+  <header class="header">
+    <div class="container ">
+      <ul class="nav nav-pills navbar-right">
+        <li role="presentation"><%= link_to("Add New Item", new_item_path(category_id: @category.id), class: 'action new') %></li>
+        <li role="presentation"><%= link_to("Back to Categories", categories_path, class: 'back-link') %></li>
+        <li role="presentation"><%= link_to("Logout", access_logout_path) %></li>
+      </ul>
+    </div>
+  </header>
 
-<div class="items index">
-  <h2>Items</h2>
-  <%= link_to("Add New Item", new_item_path(category_id: @category.id), class: 'action new') %>
-  <table class="listing" summary="Item list">
-    <tr class="header">
-      <th>Item_id</th>
-      <th>Item_name</th>
-      <th>Item_price</th>
-      <th>Category_id</th>
-      <th>Item_description</th>
-      <th>Actions</th>
-    </tr>
-    <% @items.each do |item| %>
-    <tr>
-      <td><%= item.id %></td>
-      <td><%= item.name %></td>
-      <td><%= item.price %></td>
-      <td><%= item.category_id %></td>
-      <td><%= item.description %></td>
-      <td class="actions">
-        <%= link_to("Show",item_path(item, category_id: @category.id),class: 'action show') %>
-        <%= link_to("Edit",edit_item_path(item, category_id: @category.id),class: 'action edit') %>
-        <%= link_to("Delete",delete_item_path(item, category_id: @category.id, method: 'delete', id: item.id),data: {confirm: 'Are you sure you want to delete this category?'}, class: 'action delete') %>
-      </td>
-    </tr>
-    <% end %>
-  </table>
-</div>
+  <div class="items index container">
+    <h2>Items</h2>
+
+    <table class="listing table table-striped table-inverse" summary="Item list">
+      <tr class="">
+        <th>Item_id</th>
+        <th>Item_name</th>
+        <th>Item_price</th>
+        <th>Category_id</th>
+        <th>Item_description</th>
+        <th>Actions</th>
+      </tr>
+      <% @items.each do |item| %>
+      <tr>
+        <td><%= item.id %></td>
+        <td><%= item.name %></td>
+        <td><%= item.price %></td>
+        <td><%= item.category_id %></td>
+        <td><%= item.description %></td>
+        <td class="actions">
+          <%= link_to("Show",item_path(item, category_id: @category.id),class: 'action show') %>
+          <%= link_to("Edit",edit_item_path(item, category_id: @category.id),class: 'action edit') %>
+          <%= link_to("Delete",delete_item_path(item, category_id: @category.id, method: 'delete', id: item.id),data: {confirm: 'Are you sure you want to delete this category?'}, class: 'action delete') %>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</body>

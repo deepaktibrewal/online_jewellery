@@ -1,20 +1,27 @@
 <% @page_title ="Admin Login" %>
+<body>
+  <header class="header">
+    <span class="container">
+      <h2 class="title">Welcome To Jewellery_Plaza</h1>
+    </span>
+  </header>
 
-<div class="login">
-  <%= form_tag(access_attempt_login_path, method: :post) do %>
-  <table>
-    <tr>
-      <td><%= label_tag(:email) %></td>
-      <td><%= text_field_tag(:email, params[:email]) %></td>
-    </tr>
-    <tr>
-      <td><%= label_tag(:password) %></td>
-      <td><%= password_field_tag(:password) %></td>
-    </tr>
-    <tr>
-      <td>&nbsp;</td>
-      <td><%= submit_tag("Log In")%></td>
-    </tr>
-  </table>
-  <% end %>
-</div>
+  <div class="Categories new container">
+    <%= form_tag(access_attempt_login_path, method: :post) do %>
+    <table>
+      <tr>
+        <td><%= label_tag(:email) %></td>
+        <td class="form-padding"><%= text_field_tag(:email, params[:email]) %></td>
+      </tr>
+      <tr>
+        <td><%= label_tag(:password) %></td>
+        <td class="form-padding"><%= password_field_tag(:password) %></td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="form-padding form-buttons"><%= submit_tag("Log In")%></td>
+      </tr>
+    </table>
+    <% end %>
+  </div>
+</body>
