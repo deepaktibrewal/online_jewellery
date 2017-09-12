@@ -13,7 +13,7 @@
   <h2> Create Item</h2>
 
   <%= form_for @item, url: items_path(category_id: @category.id), html: { multipart: true } do |f| %>
-
+    <%= error_messages_for(f.object) %>
     <table summary="Item form fields">
       <tr class="form-group">
         <th>Name:</th>

@@ -13,7 +13,7 @@
   <h2> Edit Item</h2>
 
   <%= form_for(@item, url: item_path(@item, category_id: @category.id)) do |f| %>
-
+    <%= error_messages_for(f.object) %>
     <table summary="Item form fields">
       <tr>
         <th>Name:</th>

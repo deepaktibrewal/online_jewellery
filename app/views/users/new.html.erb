@@ -6,11 +6,12 @@
   </header>
 
 <div class="Categories new container">
-  <h2> Create User</h2>
+
+  <h1 class="align">Sign up</h1>
 
   <%= form_for(@user) do |f| %>
-
-    <table summary="User form fields">
+    <%= error_messages_for(f.object) %>
+    <table summary="User form fields" class="align">
       <tr class="form-group">
         <th>Name:</th>
         <td class="form-padding"><%= f.text_field(:name) %></td>
@@ -42,7 +43,7 @@
       </tr>
     </table>
 
-    <div class="form-buttons">
+    <div class="form-buttons align">
       <%= f.submit("Create User") %>
     </div>
 

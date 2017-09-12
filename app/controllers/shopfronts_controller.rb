@@ -1,4 +1,5 @@
 class ShopfrontsController < ApplicationController
+  before_action :confirm_logged_in
   def view
     session[:cart_item] ||= []
     @categories=Category.all

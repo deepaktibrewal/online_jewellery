@@ -44,12 +44,13 @@ class ItemsController < ApplicationController
   end
 
   def delete
-    @item=Item.find(params[:id])
-    @item.destroy
-    redirect_to(items_path(category_id: @category.id))
+
   end
 
   def destroy
+    @item=Item.find(params[:id])
+    @item.destroy
+    redirect_to(items_path(category_id: @category.id))
   end
 
   private

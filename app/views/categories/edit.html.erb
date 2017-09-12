@@ -12,7 +12,7 @@
   <h2> Edit Category</h2>
 
   <%= form_for(@category) do |f| %>
-
+    <%= error_messages_for(f.object) %>
     <table summary="Category form fields " class="form-group">
       <tr>
         <th>Name:</th>

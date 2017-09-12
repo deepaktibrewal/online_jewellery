@@ -23,7 +23,7 @@
         <td class="actions">
           <%= link_to("Show Items",items_path(category_id: category.id),class: 'action show') %>
           <%= link_to("Edit Category",edit_category_path(category),class: 'action edit') %>
-          <%= link_to("Delete Category",{action: 'delete', id: category.id},data: {confirm: 'Are you sure you want to delete this category?'}, class: 'action delete') %>
+          <%= link_to("Delete Category", category_path(category), method: 'delete', data: {confirm: 'Are you sure you want to delete this category?'}, class: 'action delete') %>
         </td>
       </tr>
       <% end %>
