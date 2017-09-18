@@ -1,5 +1,16 @@
 class UsersController < ApplicationController
+
   def new
+    if session["email"]
+      @user=User.find(session[:email])
+      if @user.user_type=="admin"
+        redirect_to(categories_path)
+      else
+        redirect_to(shopfronts_view_path)
+      end
+    else
+      @user=User.new
+    end
     @user=User.new
   end
 

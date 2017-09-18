@@ -7,5 +7,5 @@ class User < ApplicationRecord
     message: "Not Valid Email" }
   validates :email, :contact, uniqueness: { message: "Already exists" }
   validates :contact, numericality: { message: "Integer Only"}
-  validates :contact, length: { minimum: 8, maximum: 10, message: "not valid contact no" }
+  validates :contact, length: { minimum: 8, maximum: 10, message: "contact no should have 8-10 digits" }
 end
